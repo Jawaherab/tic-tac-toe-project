@@ -18,7 +18,9 @@
  let players= {
     player1:'X',
     player2:'O',
-    numberPlay:1
+    numberPlay:1,
+    scorePlayer1:0,
+    scorePlayer2:0
     };
    
 
@@ -36,17 +38,20 @@
             
         }
         $(event.target).off("click")
-
+        findWinner();
         console.log(players.numberPlay);
         players.numberPlay += 1;
         
         }
+
         $('.position').on("click",turn);
 
 
 
 //the result of the game
 let playerscore= 0;
+
+
 const findWinner =function(){
 
 
@@ -60,10 +65,10 @@ const findWinner =function(){
         $("#button3").text() + $("#button5").text() +  $("#button7").text() ==="XXX" ){
             
             swal("Good job X !", "You Winner!", "success");
-
             $('.position').off("click");
-            playerscore += 1
-            $('#count1').html(playerscore);
+
+            players.scorePlayer1 += 1
+            $('#count1').html(players.scorePlayer1);
             
 
            
@@ -77,31 +82,34 @@ const findWinner =function(){
         $("#button1").text() + $("#button5").text() +  $("#button9").text() ==="OOO" ||
         $("#button3").text() + $("#button5").text() +  $("#button7").text() ==="OOO" ){
                 
-            swal("Good job O !", "You Winner!", "success");
+             swal("Good job O !", "You Winner!", "success");
              $('.position').off("click");
-             playerscore += 1
-             $('#count2').html(playerscore);
+            
+             players.scorePlayer2 += 1
+             $('#count2').html(players.scorePlayer2);
  
             
-    } else if(players.numberPlay >9 ) {
-        swal(" Sorry, there is no winner. Try Again.");
+    } else if(players.numberPlay === 9 ){
+        swal(" DRAW !");
     }
 }
-    $('.position').on("click",findWinner);
+
+// $('.position').on("click",findWinner);
     
+
+
+
+   
+    $("#reset").on("click", function(event){
+        $('.position').on("click",turn);
+        players.numberPlay = 1;
+        $(".position").text("");
+});
     
 
+    
 
-
-    const resetGame =function(){
-    $("#reset").on("click", function(){
-
-    location.reload(true);
-     //$(".position").text(" ");
-
-})
-    }
-    resetGame();
+    
 
 
 
