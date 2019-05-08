@@ -1,9 +1,7 @@
 
-# Welcome to the TicTacToe Game , a simple Javascript web application allowing users to interact with the game,
-# The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game .
+# Welcome to the TicTacToe Game , a simple Javascript web application allowing users to interact with the game,The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game .
 
-# The goal of this project is to develop a responsive website of Tic-Tac-Toe game  and allows multi-player
-# to choose whether to play as (X or O) or plays against the computer.
+# The goal of this project is to develop a responsive website of Tic-Tac-Toe game and allows multi-player to choose whether to play as (X or O) or plays against the computer.
 
 
 
