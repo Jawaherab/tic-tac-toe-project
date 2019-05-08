@@ -11,11 +11,11 @@ h1{
     color:lightseagreen;
     font-size: 60px;
     font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 p{
     height: 20px;
 }
-
 
 
 .row{
@@ -23,6 +23,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 40px;
     
 
 }
@@ -47,27 +48,33 @@ p{
     background-color: white;
 }
 
-
-
-h3{
-    text-align: center;
-    display: inline;
-    margin-top: 20px;
-    margin-left: 27%;
-
+#container{
+    display: flex;
+    justify-content: center;
+    padding-right: 15%;
 }
 
-#win{
+
+#score{
+   margin-right: 10%;
+   margin-top: 5%;
+   padding-bottom: 10%;
+   color:rgb(18, 126, 120);
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size: 20px;
+}
+
+
+
+#count1 , #count2{
     color: rgb(214, 0, 18);
+    font-size: 30px;
     font-weight: bold;
-    text-align: center;
-    font-size: 50px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  
-    
+    display: block;
+    margin-left:30px; 
+    margin-top: 10px;
+   
 }
-
 
 
 #reset{
@@ -77,7 +84,8 @@ h3{
     padding: 5px 15px;
     text-align: center;
     font-size: 16px;
-    margin: 0 auto;
+    margin:  13px;
+    margin-left: 44%;
     opacity: 0.6;
     transition: 0.3s;
     width: 10%;

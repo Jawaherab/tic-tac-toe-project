@@ -4,19 +4,27 @@
         <meta    >
         <title> tic-tac-toe </title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
     </head>
     <body>
         <header>
             <audio src="tic.mp3" controls="controls"></audio>
                 <audio id="audio" src="http://artem.anmedio.ru/dev/sound/click.mp3" autostart="false" ></audio>
-            <h1> Tic - Tac - Toe Game  </h1>
+            <h1 class="animated pulse infinite"> Tic - Tac - Toe Game  </h1>
             <p>   </p>
         </header>
 
 
+
         <main  id="container">
+                <div id="score">
+                        <h3>player 1   &nbsp;  &nbsp;      <span class="animated tada infinite " id="count1"></span> </h3>
+                        <h3>player 2     &nbsp; &nbsp;      <span class="animated tada infinite " id="count2"></span> </h3>
+                      </div>
+
             <!-- row number 1-->
+            <div>
           <div class="row">
                   <div class="position" id="button1">
 
@@ -60,14 +68,12 @@
                   
                   </div>
             </div>
+        </div>
 
         </main>
-        <div id="win"><h2> </h2>  </div>
+       
           
-        <div id="score">
-          <h3>player 1 = <span id="count1"></span> </h3>
-          <h3>player 2 = <span id="count2"></span> </h3>
-        </div>
+       
         <form id="reset"> 
             <h2>reset</h2>
         </form>

@@ -16,25 +16,46 @@
 
 
  let players= {
-    player1:'X',
-    player2:'O',
+    player1: " ",
+    player2: " ",
     numberPlay:1,
     scorePlayer1:0,
     scorePlayer2:0
     };
    
+   
+const tokens=function(event){
+    let input = prompt("You have to insert 'X' or 'O' ")
+  if ( input.toUpperCase() === "X"){
+      players.player1 = "X";
+      players.player2 = "O";
+}else if (input.toUpperCase()  === "O"){
+      
+      players.player1  = "O";
+      players.player2  = "X";
+}
+}
+tokens();    
+
+ 
+
+
+
+
+
 
     // 1,3,5,7,9 => X
     // 2,4, 6, 8 , =>o
     let turn = function(event){
+
+
         if (players.numberPlay %2 === 0 ){
             $(event.target).text(players.player2)
-            $("p").text("Next player X")  // //who’s turn is it
-    
+            $("p").text("Next player " + players.player1)  // //who’s turn is it
 
         }else {
             $(event.target).text(players.player1)
-            $("p").text("Next player O")
+            $("p").text("Next player " + players.player2)
             
         }
         $(event.target).off("click")
@@ -54,48 +75,36 @@ let playerscore= 0;
 
 const findWinner =function(){
 
-
-   if ( $("#button1").text() + $("#button2").text() +  $("#button3").text() ==="XXX" ||
-        $("#button4").text() + $("#button5").text() + $("#button6").text()  ==="XXX" ||
-        $("#button7").text() + $("#button8").text() +  $("#button9").text() ==="XXX" || 
-        $("#button1").text() + $("#button4").text() +  $("#button7").text() ==="XXX" ||
-        $("#button2").text() + $("#button5").text() +  $("#button8").text() ==="XXX" ||
-        $("#button3").text() + $("#button6").text() +  $("#button9").text() ==="XXX" ||
-        $("#button1").text() + $("#button5").text() +  $("#button9").text() ==="XXX" ||
-        $("#button3").text() + $("#button5").text() +  $("#button7").text() ==="XXX" ){
-            
-            swal("Good job X !", "You Winner!", "success");
-            $('.position').off("click");
-
-            players.scorePlayer1 += 1
-            $('#count1').html(players.scorePlayer1);
-            
-
-           
-
-   } else if ( $("#button1").text() + $("#button2").text() +  $("#button3").text() ==="OOO" ||
-        $("#button4").text() + $("#button5").text() + $("#button6").text()  ==="OOO" ||
-        $("#button7").text() + $("#button8").text() +  $("#button9").text() ==="OOO" || 
-        $("#button1").text() + $("#button4").text() +  $("#button7").text() ==="OOO" ||
-        $("#button2").text() + $("#button5").text() +  $("#button8").text() ==="OOO" ||
-        $("#button3").text() + $("#button6").text() +  $("#button9").text() ==="OOO" ||
-        $("#button1").text() + $("#button5").text() +  $("#button9").text() ==="OOO" ||
-        $("#button3").text() + $("#button5").text() +  $("#button7").text() ==="OOO" ){
-                
-             swal("Good job O !", "You Winner!", "success");
-             $('.position').off("click");
-            
-             players.scorePlayer2 += 1
-             $('#count2').html(players.scorePlayer2);
- 
-            
-    } else if(players.numberPlay === 9 ){
-        swal(" DRAW !");
-    }
+    let correctValue = ["XXX","OOO"];
+    correctValue.forEach(function(both){
+        if ( $("#button1").text() + $("#button2").text() +  $("#button3").text() ===both ||
+        $("#button4").text() + $("#button5").text() + $("#button6").text()  ===both ||
+        $("#button7").text() + $("#button8").text() +  $("#button9").text() ===both || 
+        $("#button1").text() + $("#button4").text() +  $("#button7").text() ===both ||
+        $("#button2").text() + $("#button5").text() +  $("#button8").text() ===both ||
+        $("#button3").text() + $("#button6").text() +  $("#button9").text() ===both ||
+        $("#button1").text() + $("#button5").text() +  $("#button9").text() ===both ||
+        $("#button3").text() + $("#button5").text() +  $("#button7").text() ===both ){
+            if(both === "XXX"){
+                swal("Good job X !", "You Winner!", "success");
+                $('.position').off("click");
+                players.scorePlayer1 += 1
+                $('#count1').html(players.scorePlayer1);
+            }else{
+                swal("Good job O !", "You Winner!", "success");
+                  $('.position').off("click");
+                  players.scorePlayer2 += 1
+                 $('#count2').html(players.scorePlayer2);
+            }      
+   } else if(players.numberPlay === 9 ){
+    swal(" DRAW !");
 }
 
-// $('.position').on("click",findWinner);
-    
+
+    });
+
+
+}
 
 
 
@@ -104,13 +113,13 @@ const findWinner =function(){
         $('.position').on("click",turn);
         players.numberPlay = 1;
         $(".position").text("");
+        
+
 });
-    
 
     
 
     
-
 
 
 
@@ -120,7 +129,7 @@ const findWinner =function(){
 
 var sound = document.getElementById("audio");
 
-$('.position').click(function(event){
+$('.row').click(function(event){
   event.preventDefault();
   sound.play();
 });
