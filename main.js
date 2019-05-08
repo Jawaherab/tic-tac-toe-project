@@ -42,8 +42,6 @@ tokens();
 
 
 
-
-
     // 1,3,5,7,9 => X
     // 2,4, 6, 8 , =>o
     let turn = function(event){
@@ -107,7 +105,7 @@ const findWinner =function(){
 }
 
 
-
+//play again function
    
     $("#reset").on("click", function(event){
         $('.position').on("click",turn);
@@ -121,7 +119,16 @@ const findWinner =function(){
 
     
 
+// play with computer
+let random = Math.floor((Math.random() * 9) + 1);
+let r;
+$(".com").on("click" , function(event){
 
+    if ( random % 2 === 0){
+        players.numberPlay = random;
+        console.log("lll");
+    }
+})
 
 
 
