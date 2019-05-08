@@ -7,9 +7,19 @@ header{
     margin-top: 20px;
 
 }
+footer{
+    background-color: rgb(32, 110, 110);
+    color:white;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
 h1{
     color:lightseagreen;
-    font-size: 60px;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 10px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -93,14 +103,15 @@ p{
     background-color: #f85726;
     border: none;
     color: white;
-    padding: 5px 15px;
     text-align: center;
     font-size: 16px;
-    margin:  13px;
+    margin-top:  20px;
     margin-left: 44%;
     opacity: 0.6;
     transition: 0.3s;
     width: 10%;
+    padding-top: 0px;
+    padding-bottom: 0px;
     
 
 
